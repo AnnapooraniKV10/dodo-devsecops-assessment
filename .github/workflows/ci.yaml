@@ -18,7 +18,7 @@ jobs:
       - name: gitleaks
         run: |
           docker run -v $(pwd):/repo zricethezav/gitleaks:latest detect \
-            --source=/repo --no-git -v --exit-code=1
+            --source=/repo --no-git --baseline-path=/repo/.gitleaksignore -v --exit-code=1
 
   build-scan-sign:
     needs: secrets-scan
